@@ -1,4 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package ticTacToe;
+
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -11,13 +17,17 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class TicTacToeApplication extends Application {
+/**
+ *
+ * @author rr
+ */
+public class UI extends Application {
 
     private char currentPlayer;
     private boolean status;
     private final Button[][] board;
 
-    public TicTacToeApplication() {
+    public UI() {
         this.currentPlayer = 'X';
         this.status = true;
         this.board = new Button[3][3];
@@ -52,16 +62,15 @@ public class TicTacToeApplication extends Application {
 
                         button.setText(String.valueOf(this.currentPlayer));
                         this.currentPlayer = (this.currentPlayer == 'X') ? 'O' : 'X';
-
-                        if (WonOrNot()) {
-                            turnInfo.setText("The end!");
-                            this.status = false;
-                        } else {
-                            turnInfo.setText("Turn: " + this.currentPlayer);
-                        }
+                        turnInfo.setText("Turn: " + this.currentPlayer);
+                    }
+                    if (WonOrNot()) {
+                        turnInfo.setText("The end!");
+                        this.status = false;
                     }
 
                 });
+
                 this.board[i][j] = button;
                 buttons.add(button, i, j);
             }
@@ -73,6 +82,8 @@ public class TicTacToeApplication extends Application {
         stage.show();
     }
 
+   
+
     private boolean WonOrNot() {
         String winx = "";
         String wino = "";
@@ -80,7 +91,7 @@ public class TicTacToeApplication extends Application {
             winx += "X";
             wino += "O";
         }
-
+        
         String lrd = "";
         String rld = "";
         for (int i = 0; i < this.board.length; i++) {
@@ -112,9 +123,4 @@ public class TicTacToeApplication extends Application {
 
         return false;
     }
-
-    public static void main(String[] args) {
-        launch(UI.class);
-    }
-
 }
