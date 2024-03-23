@@ -118,6 +118,11 @@
                     <version>11.0.2</version>
                 </dependency>
                 <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-media</artifactId>
+                    <version>11.0.2</version>
+                </dependency>
+                <dependency>
                     <groupId>org.testfx</groupId>
                     <artifactId>openjfx-monocle</artifactId>
                     <version>jdk-11+26</version>
